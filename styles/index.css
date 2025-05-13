@@ -4,15 +4,56 @@
 #wrap .intro {
     height:100vh;/* 보이는 화면 */
     background:url(../images/bg1.png) no-repeat center / cover;
+    position:relative;/* absolute의 기준이 되도록 세팅 */
+    padding-top:100px;
 }
-#wrap .intro .container {}
-#wrap .intro .container h1:nth-child(1) {}
+#wrap .intro::before {
+    content:''; display:block;/* 가상요소(befor,after)의 필수속성 */ /* content는 그냥 디자인용도라서 ''안에 비워둠 */
+    width:100%; height:100%;/* 크기 설정 */
+    position:absolute; left:0; top:0;/* 곂쳐지게 */
+    background:linear-gradient(-0deg,rgba(0, 0, 0, 0.7), transparent);
+}
+#wrap .intro .container {
+    border:2px solid aquamarine;
+    max-width:1250px;/* 최대 제한 크기 */ /* max를 줌으로서 그 이상은 가변형100%로 바뀐다. */
+    min-width:320px;
+    margin:0 auto;/* 디바이스 크기보다 width가 작은 블록요소를 가운데배치하는 방법 */
+    /* 형제-형제 margin, 부모-자식 padding */
+    position:relative;/* position으로 먼저 부모의 위치설정 */
+    z-index:100;/* container에 들어있는 태그들을 배경보다 위로 올리기 */
+    text-align:center;/* 자식 자손이 inline일 경우 부모에게 text-aling을 쓴다. */
+    overflow:hidden;/* float가 부유되는 속성이기 때문에 영역 인식을 위해서 overflow를 작성한다. */
+}
+#wrap .intro .container h1:nth-child(1) {text-align:left;}
 #wrap .intro .container h1:nth-child(1) a {}
 #wrap .intro .container h1:nth-child(1) a img {width:89px;}
-#wrap .intro .container h1:nth-child(2) {}
-#wrap .intro .container h1:nth-child(2) em {}
-#wrap .intro .container .sponsor_btn {}
-#wrap .intro .container .sponsor_question {}
+#wrap .intro .container h1:nth-child(2) {
+    color:#fff; font-size:4.375rem;
+    line-height:1.3;
+    margin-top:100px;
+}
+#wrap .intro .container h1:nth-child(2) em {
+    color:#fff;
+    font-weight:700;
+}
+#wrap .intro .container .sponsor_btn {
+    display:block;
+    margin:100px auto;/* 가운데 배치 */
+    width:409px; line-height:71px; color:#fff;
+    /* 수직중앙 배치해야하는 글자가 1줄일 경우 heigth생략가능. line-height만 px값으로 적용 */
+    background:linear-gradient(90deg, #FE9300, #FF7300);
+    border-radius:50px;
+    font-size:2.125rem; font-weight:700;
+}
+#wrap .intro .container .sponsor_question {
+    float:right;/* 부유되는 속성 */
+    color:#fff;
+    background-color:#050505;
+    width:439px; height:51px; padding:10px 0;
+    line-height:1.2;/* line-height를 살리고 싶을대 padding-top으로 여백을 준다. */
+    font-size:1.625rem;
+    border-radius:30px;
+}
 /* 2행 ======================================퀴즈 */
 /* 3행 ======================================새끼북극곰 이야기 */
 /* 4행 ======================================빙하면적감소 */
