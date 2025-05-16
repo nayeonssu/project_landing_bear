@@ -10,11 +10,29 @@
     #wrap .intro .container .sponsor_question {width:333px; height:54px; font-size:1.25rem; line-height:1.7;}
     /* =====================2행 quiz */
     #wrap .quiz {padding:150px 80px;}
-    /* =====================3행 */
+    #wrap .quiz .container {grid-template-columns:395px 327px;}
+    /* =====================3행 video */
     #wrap .ad {padding:200px 80px;}
     #wrap .ad .container .sponsor_btn {
         font-size:1.375rem;
         width:270px; line-height:62px;
+    }
+    /* =====================4행 */
+    /* =====================5행 인류재앙 */
+    #wrap .disaster {padding:200px 80px}
+    #wrap .disaster .container h2 {
+        font-size:2.5rem;
+    }
+    #wrap .disaster .container > p {
+        margin:40px 0;
+        font-size:1rem;
+    }
+    #wrap .disaster .container .list li .bg p {
+        font-size:1rem;
+    }
+    #wrap .disaster .container .list li > p {
+        height:250px;
+        font-size:1.25rem;
     }
 }
 /* Mobile 320 ~ 849 */
@@ -25,21 +43,52 @@
     #wrap .intro .container h1:nth-child(1) a img {width:40px;}
     #wrap .intro .container h1:nth-child(2) {font-size:1.875rem; font-weight:700;}
     #wrap .intro .container .sponsor_btn {margin:50px auto;}
+    #wrap .intro .container .sponsor_question {
+        float:none;
+        display:inline-block;
+    }
     /* =====================2행 quiz */
     #wrap .quiz {padding:70px 15px;}
     #wrap .quiz .container {
-        display:grid;/* 왼쪽퀴즈, 오른쪽참여현황 정렬grid */
-        grid-template-columns:1fr;
+        display:flex;/* 왼쪽퀴즈, 오른쪽참여현황 정렬grid */
+        flex-flow:column nowrap;
+        grid-template-columns:402px 327px;
     }
     #wrap .quiz .container #left_quiz {margin-bottom:50px;}
+    #wrap .quiz .container .right {text-align:center;}
     #wrap .quiz .container .right p:nth-child(1) {}
     #wrap .quiz .container .right p:nth-child(1) img {width:70%;}
-    /* ======================3행 */
+    /* ======================3행 video */
     #wrap .ad {padding:50px 15px;}
     #wrap .ad .container h3 {font-size:1.375rem;}
     #wrap .ad .container iframe {height:400px;}
     #wrap .ad .container .sponsor_btn {
         font-size:1.375rem;
         width:270px; line-height:62px;
+    }
+    /* =====================4행 */
+    /* =====================5행 인류재앙 */
+    #wrap .disaster {padding:200px 80px}
+    #wrap .disaster {padding:70px 15px;}
+    #wrap .disaster .container .list {
+        flex-flow:column nowrap;
+    }
+    #wrap .disaster .container .list li .bg{height:150px;}
+    #wrap .disaster .container .list li .bg h3 {
+        font-size:1.375rem; font-weight:500;
+    }
+    #wrap .disaster .container .list li .bg p {
+        font-size:1rem;
+    }
+    #wrap .disaster .container .list li > p {
+        height:max-content;
+        font-size:0.813rem;
+    }
+    #wrap .disaster .container h2 {
+        font-size:1.375rem;
+    }
+    #wrap .disaster .container > p {
+        margin:40px 50px;
+        font-size:0.813rem;
     }
 }

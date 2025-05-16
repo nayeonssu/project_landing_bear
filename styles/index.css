@@ -16,7 +16,6 @@ body * {transition:all 0.5s;}
     background:linear-gradient(-0deg,rgba(0, 0, 0, 0.7), transparent);
 }
 #wrap .intro .container {
-    border:1px solid aqua;
     max-width:1250px;/* 최대 제한 크기 */ /* max를 줌으로서 그 이상은 가변형100%로 바뀐다. */
     min-width:320px;
     margin:0 auto;/* 디바이스 크기보다 width가 작은 블록요소를 가운데배치하는 방법 */
@@ -66,10 +65,10 @@ body * {transition:all 0.5s;}
     /* height:412px; */
     max-width:1250px;
     min-width:320px;
-    border:1px solid aqua;
     margin:0 auto;
     display:grid;/* 왼쪽퀴즈, 오른쪽참여현황 정렬grid */
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:455px 500px;
+    justify-content:space-between;
 }
 #wrap .quiz .container #left_quiz {}
 #wrap .quiz .container #left_quiz * {color:#fff;}
@@ -89,7 +88,9 @@ body * {transition:all 0.5s;}
     grid-template-rows:repeat(4, 34px);
     margin:8px 0 38px;
 }
-#wrap .quiz .container #left_quiz .list label {}
+#wrap .quiz .container #left_quiz .list label {
+    margin-bottom:50px;
+}
 #wrap .quiz .container #left_quiz .list label input[value^=q] {
     display:none;/* 기본 디자인 안보이게 처리, label이 있기때문에 선택이 가능 */
 }
@@ -128,7 +129,6 @@ body * {transition:all 0.5s;}
     min-width:320px;
     margin:0 auto;
     text-align:center;
-    border:1px solid orangered;
 }
 #wrap .ad .container h3 {
     font-weight:500;
@@ -150,6 +150,75 @@ body * {transition:all 0.5s;}
 }
 /* 4행 ======================================빙하면적감소 */
 /* 5행 ======================================인류재앙 */
+#wrap .disaster {
+    background:#f5f5f5;
+    padding:200px 0;
+}
+#wrap .disaster .container {
+    max-width:1250px; min-width:320px;
+    /* (위) 최소 320 ~ 최대 1250 사이 너비값은 가변형 세팅 */
+    /* (위) 큰 범위값 세팅 후 @media 규칙내에서 태블릿, 모바일에 맞는 레이아웃 재수정하며 반응형 제작 */
+    margin:0 auto;
+    text-align:center;
+}
+#wrap .disaster .container h2 {
+    font-size:3.438rem; font-weight:500;
+}
+#wrap .disaster .container > p {
+    margin:55px 0;
+    font-size:1.25rem; line-height:1.7;
+}
+#wrap .disaster .container .list {
+    display:flex; flex-flow:row nowrap;
+    /* 옆으로 정렬하는 대상(li)의 부모(flex) */
+    /* flex의 기본값 자식요소들을 옆으로 정렬(기본값) */
+    gap:20px;/* li 사이간격 인식 */
+}
+#wrap .disaster .container .list li {
+    background:#fff;
+    flex:1;/* li비율 */
+}
+#wrap .disaster .container .list li .bg {
+    height:320px;
+    background-position:0 55%;
+    background-size:cover;
+    position:relative;
+}
+#wrap .disaster .container .list li .bg::before {/* 가상선택자 -> 디자인 때문에 넣는것 | content, display, position, width, height 필수 */
+    content:''; display:block; z-index:50;
+    position:absolute; left:0; top:0;
+    width:100%; height:100%;
+    /* (위) content ~ height속성 까지 befor 또는 after 가상요소 사용 시 필수속성 모음 */
+    background:linear-gradient(#000 10%, transparent 60%);
+}
+#wrap .disaster .container .list li .bg h3 {
+    color:#fff; z-index:60; position:relative;
+    /* z-index속성은 position속성이 선행되어야만 사용할 수 있는 중첩순서이다. */
+    font-size:2.688rem; font-weight:700;
+    padding:48px 0 11px;
+}
+#wrap .disaster .container .list li .bg p {
+    color:#fff; z-index:60; position:relative;
+    font-size:1.25rem; line-height:1.7;
+}
+#wrap .disaster .container .list li > p {
+    height:250px;
+    font-size:1.25rem; line-height:1.7;
+    margin:20px;
+}
+/* 5행 개별 선택자 */
+#wrap .disaster .container .list li:nth-child(1) .bg {
+    background-image:url(../images/28.png);
+}
+#wrap .disaster .container .list li:nth-child(2) .bg {
+    background-image:url(../images/27.png) ;
+}
+#wrap .disaster .container .list li:nth-child(3) .bg {
+    background-image:url(../images/wwf.jpg);
+    background-position:center 60%;
+    background-size:cover;
+}
+
 /* 6행 ======================================지구위기 */
 /* 7행 ======================================WWF 단체 홍보 */
 /* 8행 ======================================다양한 활동 */
